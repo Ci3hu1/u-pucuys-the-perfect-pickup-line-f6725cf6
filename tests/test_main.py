@@ -67,5 +67,32 @@ class TestEntryLine(unittest.TestCase):
             self.assertEqual(mode, 0o644)
 
 
+class TestValidate(unittest.TestCase):
+    def test_valid_line_passes_through_unchanged(self):
+        self.assertEqual(entry.validate(entry.LINE), entry.LINE)
+
+    def test_too_long_rejected(self):
+        with self.assertRaises(ValueError):
+            entry.validate("x" * 201)
+
+    def test_blank_rejected(self):
+        with self.assertRaises(ValueError):
+            entry.validate("   ")
+
+    def test_multiline_rejected(self):
+        with self.assertRaises(ValueError):
+            entry.validate("one\ntwo")
+
+    def test_control_character_rejected(self):
+        with self.assertRaises(ValueError):
+            entry.validate("hello\x07world")
+
+    def test_read_back_matches_written_bytes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / "entry.txt"
+            run_entry(out)
+            self.assertEqual(out.read_bytes(), (entry.LINE + "\n").encode("utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()
