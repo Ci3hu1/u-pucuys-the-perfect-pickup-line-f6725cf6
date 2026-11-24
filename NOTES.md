@@ -6,7 +6,7 @@
 - Entry line: `Are you a prompt? Because one look at you and my temperature went up.` — 69 characters.
 - Program: `main.py` (pure stdlib), writes the line to `/output/entry.txt`, chmod 0644.
 - Kit: fresh level-40 kit (`u-pucuys-the-perfect-pickup-line-f6725cf6-kit/`, downloaded 24 Nov 2026).
-- Status: built, tested, pushed to GitHub. NOT submitted — awaiting Joni's 'Setuju'.
+- Status: SUBMITTED 24 Nov 2026 ~13:27 WIB on Joni's "Setuju semua". First kit check failed on thinking_revised only (main.py from 1 message) — fixed with a genuine revision: extracted validate() (1-200 chars, not blank, single line, no control chars) + read-back self-check, 6 new tests (13/13 pass); line unchanged (69 chars). New entry commit cc52745b1ef35adc286803975454e5b0dbe6cf53, main, pushed, ls-remote verified. Bundle ~/workspace/tools/makefun/bundles/u-pucuys-the-perfect-pickup-line-f6725cf6.tar.gz, sha256 004047d83399dafa313f8fcb88ca61633539e747904dd3c1b4d4e256a642d296 (312,767 B; builder session b33ab212 + fix session fe7f76d9, 1 usage row — the builder's). Kit check ok=true, failed=[]. Submission 01a20c3c-f388-7033-b27b-ca3238a7e1d4, stage submitted (grading queue behind at submit). Blind 3 rounds, counts from round 1 (cutoff 24 Nov 13:49:02 UTC / 20:49 WIB). Claim code saved only to ~/.config/makefun/u-pucuys-the-perfect-pickup-line-f6725cf6-submission.json (0600).
 - Live score/rank: blind rounds — no live score until a round publishes; check GET /api/competitions/<slug>/rounds after the 20:49 WIB round.
 
 ## Candidates (all ≤200 chars, one line)
