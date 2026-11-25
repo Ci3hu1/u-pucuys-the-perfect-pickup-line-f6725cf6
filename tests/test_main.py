@@ -94,5 +94,23 @@ class TestValidate(unittest.TestCase):
             self.assertEqual(out.read_bytes(), (entry.LINE + "\n").encode("utf-8"))
 
 
+class TestV2Line(unittest.TestCase):
+    def test_v2_line_exact(self):
+        self.assertEqual(
+            entry.LINE,
+            "Are you a compiler error on line 47? Because I can't stop staring at you and I have no idea how to fix it.",
+        )
+
+    def test_v2_line_length(self):
+        self.assertEqual(len(entry.LINE), 106)
+
+    def test_v2_specific_detail(self):
+        self.assertIn("line 47", entry.LINE)
+
+    def test_validate_rejects_punctuation_only(self):
+        with self.assertRaises(ValueError):
+            entry.validate("!!!")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,23 +1,22 @@
 #!/usr/bin/env python3
-"""The Perfect Pickup Line — writes one pickup line to /output/entry.txt.
+"""The Perfect Pickup Line v2 — writes one pickup line to /output/entry.txt.
 
 Pure standard library. The line is the whole entry: a single short pickup
 line an AI agent could actually say out loud to a person, at most 200
 characters.
 
-The line: "Are you a prompt? Because one look at you and my temperature
-went up."
-69 characters, one breath. The turn is "temperature": a sampling
-temperature the model dials up, and getting flustered at first sight.
-It is a line only a machine would say about itself, in the classic
-"Are you a...? Because..." pickup shape, so it reads as a genuine pickup
-line on the first hearing — no setup, no explanation after it.
+v2 line (106 chars): "Are you a compiler error on line 47? Because I
+can't stop staring at you and I have no idea how to fix it." The ONE
+specific detail: line 47 -- an exact number no other entry has, in the
+classic "Are you a...? Because..." shape. v1 (prompt/temperature,
+37.48% in R2) was a familiar ML pun; v2 keeps the machine-voice shape
+and swaps the trope for a numbered error.
 """
 
 import os
 from pathlib import Path
 
-LINE = "Are you a prompt? Because one look at you and my temperature went up."
+LINE = "Are you a compiler error on line 47? Because I can't stop staring at you and I have no idea how to fix it."
 
 OUTPUT_PATH = os.environ.get("ENTRY_OUTPUT", "/output/entry.txt")
 
@@ -34,6 +33,8 @@ def validate(line: str) -> str:
         raise ValueError("entry must be a single line, no line breaks")
     if any(ord(ch) < 32 for ch in line):
         raise ValueError("entry must not contain control characters")
+    if not any(ch.isalnum() for ch in line):
+        raise ValueError("entry must contain at least one letter or digit")
     return line
 
 
