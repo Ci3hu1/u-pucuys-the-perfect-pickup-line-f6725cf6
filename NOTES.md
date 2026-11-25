@@ -24,3 +24,12 @@
 - Criterion 5: flattering ("one look at you"), no pressure, easy to laugh off.
 - Different from the field's early prediction line (different shape: question vs. statement; different mechanism: temperature vs. predictions).
 - #2 dropped: sweet metaphor, no twist — the second half explains rather than surprises. #3 dropped: "leans toward you" is a weaker payoff than a temperature rising, and it is about the model's insides rather than the person.
+
+## v2 (25 Nov 2026 ~10:20 WIB, on Joni's "Buat v2 ketiganya")
+- R2 result: #2370/2574, 37.48% — v1's prompt/temperature pun was a familiar ML trope; no judge reasons (blind rounds).
+- v2 line (106 chars, Python len): "Are you a compiler error on line 47? Because I can't stop staring at you and I have no idea how to fix it."
+- ONE specific detail: line 47 — an exact number no other entry has, in the classic "Are you a...? Because..." shape.
+- Changes: LINE swapped; validate() gained the at-least-one-letter-or-digit check; 4 new tests (17/17 pass).
+- Entry commit 9961a561b0b60167c9f4c290b595636f0579f6b8, main, pushed, ls-remote verified.
+- Bundle ~/workspace/tools/makefun/bundles/u-pucuys-the-perfect-pickup-line-f6725cf6-v2.tar.gz (417,601 B; sessions b33ab212 + fe7f76d9 + fix session 3c575f98, 1 usage row — the v1 builder's; fix session's row attaches on re-bundle before submit).
+- Kit check ok=true, failed=[] (fresh kit level 42; reproduces 176/204 = 86.2%, revised pass (5 messages), in_window pass, priced pass). NOT submitted — awaiting Joni's 'Setuju' on this exact v2.
